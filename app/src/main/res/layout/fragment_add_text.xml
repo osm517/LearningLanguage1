@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AddTextFragment"
+    android:padding="15dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/Linear_Buttons">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icon_translate"
+                android:layout_gravity="center"
+                android:contentDescription="@null"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Et_Language_Origin"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:minHeight="100dp"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/Tv_Language_Destiny"
+                android:text="@string/Tv_Language_Destiny"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnBackAddText"
+                android:layout_gravity="center"
+                android:text="Back"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/Linear_Buttons"
+        android:layout_above="@+id/Btn_Translate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Btn_Select_Language"
+            android:text="@string/Btn_Select_Language"
+            app:cornerRadius="10dp"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/ic_change"
+            android:background="@android:color/transparent"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Btn_Language_Selected"
+            android:text="@string/Btn_Language_Selected"
+            app:cornerRadius="10dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Btn_Translate"
+        android:text="@string/Btn_Translate"
+        android:layout_alignParentBottom="true"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/ic_translate"/>
+
+</RelativeLayout>

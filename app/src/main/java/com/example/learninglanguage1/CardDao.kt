@@ -1,0 +1,19 @@
+package com.example.learninglanguage1
+
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.Query
+
+interface CardDao {
+
+    @Insert
+    fun save(card: Card)
+
+    @Delete
+    fun delete(card:Card)
+
+    @Query("select * from card_table")
+    fun getAll(): List<Card>
+
+    //@Query()
+}

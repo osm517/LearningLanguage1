@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LearningLanguage1</string>
+
+    <string name="Tv_Language_Destiny">Translate</string>
+    <string name="Et_Language_Origin">Enter Text</string>
+    <string name="Btn_Select_Language">Spanish</string>
+    <string name="Btn_Language_Selected">English</string>
+    <string name="Btn_Translate">Translate</string>
+</resources>
