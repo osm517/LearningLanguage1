@@ -2,10 +2,11 @@ package com.example.learninglanguage1
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity (tableName = "card_table")
 data class Card(
-    @ColumnInfo(name = "my_id") val myId: Int,
+    @PrimaryKey(autoGenerate = true) val myId: Int,
     val id: Int,
     val category: String,
     val input: String,

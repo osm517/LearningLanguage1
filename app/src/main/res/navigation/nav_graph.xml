@@ -61,6 +61,12 @@
         <action
             android:id="@+id/action_testFragment_to_firstFragment"
             app:destination="@id/firstFragment" />
+        <action
+            android:id="@+id/action_testFragment_to_viewSavedCardsFragment"
+            app:destination="@id/viewSavedCardsFragment" />
+        <action
+            android:id="@+id/action_testFragment_to_viewSavedCardsFragment2"
+            app:destination="@id/viewSavedCardsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addTextFragment"
@@ -70,5 +76,14 @@
         <action
             android:id="@+id/action_addTextFragment_to_addFragment"
             app:destination="@id/addFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewSavedCardsFragment"
+        android:name="com.example.learninglanguage1.ViewSavedCardsFragment"
+        android:label="fragment_view_saved_cards"
+        tools:layout="@layout/fragment_view_saved_cards" >
+        <action
+            android:id="@+id/action_viewSavedCardsFragment_to_testFragment"
+            app:destination="@id/testFragment" />
     </fragment>
 </navigation>
