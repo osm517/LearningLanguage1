@@ -12,7 +12,7 @@ interface CardDao {
     fun save(card: Card)
 
     @Delete
-    fun delete(card:Card)
+    fun delete(card: MutableList<Card>)
 
     @Query("select * from card_table")
     fun getAll(): List<Card>

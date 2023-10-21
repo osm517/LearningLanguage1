@@ -31,6 +31,7 @@ class AddTextFragment : Fragment(R.layout.fragment_add_text) {
     private var Btn_Select_Language: MaterialButton? = null
     private var Btn_Language_Selected: MaterialButton? = null
     private var Btn_Translate: MaterialButton? = null
+    private var Btn_Save: MaterialButton? = null
     private var progressDialog: ProgressBar? = null
     private var LanguagesArrayList: ArrayList<Language>? = null
     private var language_code_origin = "es"
@@ -56,11 +57,21 @@ class AddTextFragment : Fragment(R.layout.fragment_add_text) {
             SelectLanguageOrigin()
         }
         Btn_Language_Selected?.setOnClickListener { //Toast.makeText(MainActivity.this, "Language Selected", Toast.LENGTH_SHORT).show();
+
+
             SelectLanguageDestiny()
         }
         Btn_Translate?.setOnClickListener { //Toast.makeText(MainActivity.this, "Translate", Toast.LENGTH_SHORT).show();
             ValidateData()
         }
+        Btn_Save?.setOnClickListener {
+            var Card: Card = Card(0, 0, "loquesea", Et_Language_Origin.text.toString(), Tv_Language_Destiny?.text.toString())
+            AppDatabase.getDatabase(this.requireContext()).cardDao().save(card = Card)
+
+        }
+
+
+
     }
 
     private fun initializeviews(v: View) {
@@ -76,6 +87,7 @@ class AddTextFragment : Fragment(R.layout.fragment_add_text) {
         Btn_Select_Language = v.findViewById(R.id.Btn_Select_Language)
         Btn_Language_Selected = v.findViewById(R.id.Btn_Language_Selected)
         Btn_Translate = v.findViewById(R.id.Btn_Translate)
+        Btn_Save = v.findViewById(R.id.btnSave)
         //progressDialog = v.findViewById(R.id.)
 
 

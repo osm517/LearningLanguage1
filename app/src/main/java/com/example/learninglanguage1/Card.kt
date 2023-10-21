@@ -11,4 +11,26 @@ data class Card(
     val category: String,
     val input: String,
     val output: String,
-)
+){
+
+
+    fun main() {
+        test1(
+            callback = {
+
+            }
+        )
+        print("2")
+
+        // 3 4 1 2
+        // 3 4 2
+    }
+
+
+    fun test1(callback: (String) -> Unit) {
+        val a = ""
+        print("3")
+        callback(a)
+        print("4")
+    }
+}
