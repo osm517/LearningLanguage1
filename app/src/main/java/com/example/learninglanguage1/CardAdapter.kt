@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 class CardAdapter (
     private val cardList: List<Card>,
     private val onItemSelected: (Card) -> Unit,
-    private val onClickDelete: () -> Unit
+    private val onClickDelete: (Int) -> Unit
 ):RecyclerView.Adapter<CardAdapter.CardViewHolder>(){
     class CardViewHolder (v: View): RecyclerView.ViewHolder(v) {
 
@@ -34,15 +34,29 @@ class CardAdapter (
         return CardViewHolder(viewLayout)
     }
 
-    override fun getItemCount() = cardList.size
+    override fun getItemCount() : Int{
+        return cardList.size-1
+    }
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         val currentCard = cardList[position]
-        holder.bind(currentCard, onClickDelete)
+        holder.bind(
+            card = currentCard,
+            onClickDelete = {
+                onClickDelete(position)
+
+
+        }
+        )
 
         holder.itemView.setOnClickListener {
             onItemSelected(currentCard)
         }
+    }
+
+    fun delete(index: Int) {
+    notifyItemRemoved(index)
+        notifyItemRangeChanged(index, cardList.size-index);
     }
 
 }

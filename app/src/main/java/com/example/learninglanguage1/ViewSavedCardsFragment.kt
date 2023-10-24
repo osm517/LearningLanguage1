@@ -14,7 +14,7 @@ class ViewSavedCardsFragment : Fragment(R.layout.fragment_view_saved_cards){
 
     private lateinit var appDatabase: AppDatabase
     private lateinit var cardDao: CardDao
-    // private lateinit var adapter: CardDao
+    private lateinit var adapter: CardAdapter
     override fun onViewCreated(v: View, savedInstanceState: Bundle?) {
         super.onViewCreated(v, savedInstanceState)
 
@@ -28,16 +28,19 @@ class ViewSavedCardsFragment : Fragment(R.layout.fragment_view_saved_cards){
         val list: MutableList<Card> = cardDao.getAll() as MutableList
         Log.d("test", "$list")
 
-        val adapter = CardAdapter(
+        adapter = CardAdapter(
             list, 
-            onClickDelete = { Int
+            onClickDelete = {
                 Toast.makeText(context, "Delete", Toast.LENGTH_SHORT).show()
-                 //list.removeAt(0,)
-               // adapter.delete(list)
-                //delete = Unit
-                //delete -> this.notifyItemRemoved(position)
-                 //appDatabase.cardDao().delete(list[it])
-            }, 
+                Log.d("XTest", "Index:$it")
+                list.removeAt(it)
+                val card = list.get(index = it)
+                    adapter.delete(index = it)
+                cardDao.delete(card)
+                list.get(it)
+
+
+            },
             onItemSelected = {
                 Toast.makeText(context, "Click", Toast.LENGTH_SHORT).show()
             }
