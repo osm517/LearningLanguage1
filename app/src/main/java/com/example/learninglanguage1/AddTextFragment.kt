@@ -26,7 +26,7 @@ import java.util.Locale
 
 
 class AddTextFragment : Fragment(R.layout.fragment_add_text) {
-    private lateinit var Et_Language_Origin: EditText
+    private var Et_Language_Origin: EditText? = null
     private var Tv_Language_Destiny: TextView? = null
     private var Btn_Select_Language: MaterialButton? = null
     private var Btn_Language_Selected: MaterialButton? = null
@@ -65,8 +65,8 @@ class AddTextFragment : Fragment(R.layout.fragment_add_text) {
             ValidateData()
         }
         Btn_Save?.setOnClickListener {
-            var Card: Card = Card(0, 0, "loquesea", Et_Language_Origin.text.toString(), Tv_Language_Destiny?.text.toString())
-            AppDatabase.getDatabase(this.requireContext()).cardDao().save(card = Card)
+            val card = Card(0, 0, "Translate", Et_Language_Origin?.text.toString(), Tv_Language_Destiny?.text.toString())
+            AppDatabase.getDatabase(this.requireContext()).cardDao().save(card = card)
 
         }
 
@@ -80,7 +80,7 @@ class AddTextFragment : Fragment(R.layout.fragment_add_text) {
            // p.setTitle("Wait, please.")
             //p.setCanceledOnTouchOutside(false)
         } ?: also {
-            Log.d("xchel", "nuull")
+            Log.d("App", "nuull")
         }
         Tv_Language_Destiny = v.findViewById(R.id.Tv_Language_Destiny)
         Et_Language_Origin = v.findViewById(R.id.Et_Language_Origin)
@@ -145,7 +145,7 @@ class AddTextFragment : Fragment(R.layout.fragment_add_text) {
 
 
     private fun ValidateData() {
-        Text_language_origin = Et_Language_Origin.text.toString().trim { it <= ' ' }
+        Text_language_origin = Et_Language_Origin?.text.toString().trim { it <= ' ' }
         Log.d(RECORDS, "ValidateData: Text_language_origin$Text_language_origin")
         if (Text_language_origin.isEmpty()) {
 

@@ -33,11 +33,10 @@ class ViewSavedCardsFragment : Fragment(R.layout.fragment_view_saved_cards){
             onClickDelete = {
                 Toast.makeText(context, "Delete", Toast.LENGTH_SHORT).show()
                 Log.d("XTest", "Index:$it")
-                list.removeAt(it)
                 val card = list.get(index = it)
-                    adapter.delete(index = it)
+                list.removeAt(it)
+                adapter.delete(index = it)
                 cardDao.delete(card)
-                list.get(it)
 
 
             },

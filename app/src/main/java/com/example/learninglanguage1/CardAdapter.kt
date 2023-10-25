@@ -35,7 +35,7 @@ class CardAdapter (
     }
 
     override fun getItemCount() : Int{
-        return cardList.size-1
+        return cardList.size
     }
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
